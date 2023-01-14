@@ -222,6 +222,13 @@ export class EnvironmentsService extends Logger {
             }))
           })
         );
+      }),
+      tap((environmentsData) => {
+        environmentsData.forEach((environmentData) => {
+          if (!!environmentData.environment.autoStart) {
+            this.toggleEnvironment(environmentData.environment.uuid);
+          }
+        });
       })
     );
   }
