@@ -513,6 +513,17 @@ export const Migrations: {
         }));
       }
     }
+  },
+  /**
+   * Add toggle to auto start
+   */
+  {
+    id: 26,
+    migrationFunction: (environment: Environment) => {
+      if (environment.autoStart === undefined) {
+        environment.autoStart = EnvironmentDefault.autoStart;
+      }
+    }
   }
 ];
 
