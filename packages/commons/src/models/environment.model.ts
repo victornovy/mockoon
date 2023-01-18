@@ -51,7 +51,6 @@ export type Environment = {
   cors: boolean;
   headers: Header[];
   data: DataBucket[];
-  autoStart: boolean;
 };
 
 export type Environments = Environment[];

@@ -316,22 +316,4 @@ describe('Migrations', () => {
       ]);
     });
   });
-
-  describe('migration n. 26', () => {
-    it('should add autoStart flag to an environment', () => {
-      const environment = { uuid: 'randomUuid' };
-
-      applyMigration(26, environment);
-
-      expect(environment['autoStart']).to.be.false;
-    });
-
-    it('should not change autoStart flag', () => {
-      const environment = { uuid: 'randomUuid', autoStart: true };
-
-      applyMigration(26, environment);
-
-      expect(environment['autoStart']).to.be.true;
-    });
-  });
 });

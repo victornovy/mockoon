@@ -47,8 +47,7 @@ export const EnvironmentDefault: Environment = {
   headers: [],
   proxyReqHeaders: [],
   proxyResHeaders: [],
-  data: [],
-  autoStart: false
+  data: []
 };
 
 export const FolderDefault: Folder = {
@@ -347,8 +346,7 @@ export const EnvironmentSchema = Joi.object<Environment, true>({
   data: Joi.array()
     .items(DataSchema, Joi.any().strip())
     .failover(EnvironmentDefault.data)
-    .required(),
-  autoStart: Joi.boolean().optional().default(false)
+    .required()
 })
   .failover(EnvironmentDefault)
   .default(EnvironmentDefault)

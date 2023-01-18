@@ -223,12 +223,12 @@ export class EnvironmentsService extends Logger {
           })
         );
       }),
-      tap((environmentsData) => {
-        environmentsData.forEach((environmentData) => {
-          if (!!environmentData.environment.autoStart) {
-            this.toggleEnvironment(environmentData.environment.uuid);
-          }
-        });
+      tap(() => {
+        const settings = this.store.get('settings');
+
+        if (!!settings.startEnvironmentsOnLoad) {
+          this.toggleAllEnvironments();
+        }
       })
     );
   }
